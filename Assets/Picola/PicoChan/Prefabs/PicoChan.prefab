@@ -53,9 +53,10 @@ MonoBehaviour:
   runSpeed: 8
   jumpForce: 5
   cameraTransform: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  effectPrefab: {fileID: 3744133877081091469, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
+  effectOffset: {x: 0, y: 1, z: 1}
+  effectRotation: {x: 0, y: 0, z: 0, w: 1}
+  effectScale: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!95 &3031801620737161378
 Animator:
   serializedVersion: 5

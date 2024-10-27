@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3031801620737161378}
   - component: {fileID: 4695209045502839600}
   - component: {fileID: 1488318731289993899}
+  - component: {fileID: 5667609999812769562}
   m_Layer: 0
   m_Name: PicoChan
   m_TagString: Untagged
@@ -48,10 +49,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d5ce850537b20749ab3c8badf5aa198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3
-  runSpeed: 6
-  gravity: -9.81
+  walkSpeed: 5
+  runSpeed: 8
+  jumpForce: 5
   cameraTransform: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!95 &3031801620737161378
 Animator:
   serializedVersion: 5
@@ -98,7 +102,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &1488318731289993899
 CapsuleCollider:
@@ -120,9 +124,30 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
-  m_Height: 1.5
+  m_Height: 1.38
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 0.69, z: 0}
+--- !u!65 &5667609999812769562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350652681907635850}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.15, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3101518885914528314
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float walkSpeed = 3.0f;  // 歩く速度
-    public float runSpeed = 6.0f;   // 走る速度
-    public float gravity = -9.81f;  // 重力
-    public Transform cameraTransform; // カメラのTransformを参照
+    public float walkSpeed = 3.0f;     // 歩く速度
+    public float runSpeed = 6.0f;      // 走る速度
+    public float jumpForce = 5.0f;     // ジャンプの力
+    public Transform cameraTransform;  // カメラのTransformを参照
 
     private Rigidbody rb;
     private Animator animator;
+    private bool isGrounded;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
+        Jump();
     }
 
     void Move()
@@ -48,12 +50,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Shiftキーで走る速度に変更
-        float speed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
+        float speed = Input.GetButton("Dash") ? runSpeed : walkSpeed;
 
         // アニメーションの設定
         if (move.magnitude > 0.1f)
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetButton("Dash"))
             {
                 animator.SetBool("Run", true);
                 animator.SetBool("Walk", false);
@@ -75,5 +77,26 @@ public class PlayerMovement : MonoBehaviour
         // Rigidbodyを使った移動
         Vector3 moveVelocity = move.normalized * speed;
         rb.velocity = new Vector3(moveVelocity.x, rb.velocity.y, moveVelocity.z);
+    }
+
+    void Jump()
+    {
+        // ジャンプトリガーの発動
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            Debug.Log("着地");
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            animator.SetTrigger("Jump");  // ジャンプアニメーションをトリガーで再生
+            isGrounded = false;
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        // キャラクターが地面に着地したかを判定
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }

@@ -304,10 +304,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1488318731289993899, guid: 83628a2e699576147adabb30587f44d4, type: 3}
-      propertyPath: m_Center.y
-      value: 1.31
-      objectReference: {fileID: 0}
     - target: {fileID: 2119614502898484835, guid: 83628a2e699576147adabb30587f44d4, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -318,16 +314,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3206694343467642321, guid: 83628a2e699576147adabb30587f44d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.588
-      objectReference: {fileID: 0}
-    - target: {fileID: 4695209045502839600, guid: 83628a2e699576147adabb30587f44d4, type: 3}
-      propertyPath: m_Mass
-      value: 45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5097828844534885113, guid: 83628a2e699576147adabb30587f44d4, type: 3}
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 963194228}
+    - target: {fileID: 5097828844534885113, guid: 83628a2e699576147adabb30587f44d4, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8098033742515227471, guid: 83628a2e699576147adabb30587f44d4, type: 3}
       propertyPath: cameraTransform
       value: 
@@ -563,9 +559,9 @@ GameObject:
   - component: {fileID: 1334071672}
   - component: {fileID: 1334071671}
   - component: {fileID: 1334071670}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -585,7 +581,7 @@ TerrainCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: ebad6046c53f21e4d9dcb8266f57b6c0, type: 2}
